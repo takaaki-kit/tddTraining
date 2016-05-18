@@ -19,9 +19,13 @@ do{
         chomp($mode);
         my $result = FizzBuzz->fizz_buzz($number);
         print"$result\n";
+
+        #入力値とその結果を一時的に格納する
+        FizzBuzz->temporary_save($number,$result);
         $state =1;
     }elsif($mode eq "2"){
         #fizzbuzzの結果を表示する
+        FizzBuzz->temporary_show();
         $state =1;
     }elsif($mode eq "3"){
         #fizzbuzzの結果をファイルに格納する

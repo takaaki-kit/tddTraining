@@ -47,9 +47,10 @@ subtest 'check fizz? buzz? fizzbuzz? or other?' => sub{
 };
 
 
-#subtest 'save input number & result ' => sub{
-#   my $FizzBuzz->temporary_save(3,'Fizz');     
-#}
+subtest 'save input number & result ' => sub{
+   my $expect = FizzBuzz->temporary_save(3,'Fizz');
+   is_deeply($expect,['3 Fizz']);
+};
 
 
 done_testing;
