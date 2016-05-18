@@ -3,11 +3,13 @@ use warnings;
 use utf8;
 
 use FizzBuzz;
+use TemporaryOperations;
+use FileOperations;
 
 my $state;
 
 do{
-    print 'please input a number (0 ~ 4)';
+    print 'please input a number (0 ~ 4) :';
     my $mode = <STDIN>;
     chomp($mode);
 
@@ -20,19 +22,24 @@ do{
         my $result = FizzBuzz->fizz_buzz($number);
         print"$result\n";
 
+        chomp($number);
+        chomp($result);
+
         #入力値とその結果を一時的に格納する
-        FizzBuzz->temporary_save($number,$result);
+        TemporaryOperations->save($number,$result);
         $state =1;
     }elsif($mode eq "2"){
         #fizzbuzzの結果を表示する
-        FizzBuzz->temporary_show();
+        TemporaryOperations->show();
         $state =1;
     }elsif($mode eq "3"){
         #fizzbuzzの結果をファイルに格納する
-        #fizzbuzzの
+        my $result = TemporaryOperations->get_result();
+        FileOperations->write($result);
         $state =1;
     }elsif($mode eq "4"){
         #fizzbuzzのファイルの内容を表示する
+        FileOperations->read();
         $state =1;
     }elsif($mode eq "0"){
         print "stop program";

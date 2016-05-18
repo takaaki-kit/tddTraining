@@ -48,22 +48,5 @@ subtest 'check fizz? buzz? fizzbuzz? or other?' => sub{
 };
 
 
-subtest 'save input number & result ' => sub{
-    subtest 'a case of exec 1 time' => sub{
-        FizzBuzz->temporary_save(3,'Fizz');
-        stdout_is {FizzBuzz->temporary_show()} "3 Fizz\n","Test a case of exec 1 time";
-    };
-
-    subtest 'a case of exec 2 time' => sub{
-        FizzBuzz->temporary_save(5,'Buzz');
-        stdout_is {FizzBuzz->temporary_show()} "3 Fizz\n5 Buzz\n","Test a case of exec 2 times"
-    };
-    
-    subtest 'a case of exec 3 time' => sub{
-        FizzBuzz->temporary_save(15,'FizzBuzz');
-        stdout_is {FizzBuzz->temporary_show()} "3 Fizz\n5 Buzz\n15 FizzBuzz\n","Test a case of exec 3 times"
-    };
-};
-
 
 done_testing;
