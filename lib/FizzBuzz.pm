@@ -26,6 +26,7 @@ sub fizz_buzz{
     return $number;
 }
 
+
 sub temporary_save(){
     my $class = shift;
     my $number = shift;
@@ -33,7 +34,13 @@ sub temporary_save(){
 
     push(@temporary_result,"$number $result");
 
-    return [@temporary_result];
+    return \@temporary_result;
+}
+
+sub temporary_show(){
+    foreach my $element(@temporary_result){
+        print "$element\n";
+    }
 }
 
 
