@@ -45,6 +45,7 @@ subtest 'check fizz? buzz? fizzbuzz? or other?' => sub{
         my $expect = FizzBuzz->fizz_buzz(1);
         is($expect,'1');
     };
+
 };
 
 
